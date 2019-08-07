@@ -1,0 +1,111 @@
+SECTION 1: WHAT IS ETHEREUM?
+
+Introduction: 
+- Building three apps throughout the course. 
+- Building web apps. 
+
+Completed Project Code: https://github.com/StephenGrider/EthereumCasts
+
+Short History Lesson:
+- Bitcoin paper 2008, decenteralized transaction network.
+- Vitalik, Ethereum 2013, added complexity to Bitcoin network i.e. smart contracts
+    -- Smart Contract lives on the blockchain, allows for more complex interactions and applications.
+
+What is Ethereum?:
+- Network of computers used to transfer money and store data.
+- Multiple Ethereum networks, one primary network that people deploy product applications.
+    -- Development and private networks.
+- A node is a client running an ethereum client. 
+    -- Anyone can run a node.
+    -- Each Node can contain a full copy of the blockchain. 
+- Blockchain is a database that stores a record of all the transactions in the network. 
+
+Interfacing with Ethereum Networks:
+- Tech used by Devs: web3.js (talk to the network through code, send money, deploy contracts, store data).
+- Tech used by consumers: Metamask (chrome extension) & Mist Browser (full broswer).
+    -- Main network is the production ready network.
+    -- Using Rinkeby Test Network 
+
+Ethereum Accounts:
+- Account Address, Public Key, and Private key make up an Ethereum account.
+    -- Keys used to authorize transaction 
+    -- Stored as Hex-decimal numbers
+- An account is used across all networks. 
+
+Receiving Ether:
+- Try later Rinkeby-faucet.com
+
+What's a Transaction?:
+- An account can have different account balance in different networks. Contained networks.
+- Click submit button -> took address sent to backenend server -> Used web3 lib to create transaction object
+    -- Transaction (record of money being sent from one account to another) composed of:
+        --- nonce: How many times the sender has sent a transaction
+        --- recipient address: Who to send this money to.
+        --- value: Amount of ether to send to the recipient.
+        --- gasPrice: Amount of ether the sender is willing to pay per unit gas to get this transaction processed
+        --- startGas/gasLimit: Units of gas that this transaction can consume.
+        -- v,r,s: Cryptographic pieces of data that can be used to generate the senders account address. Generated from the senders private key. 
+
+Why'd We Wait?:
+- Transaction is sent out to the network, and wait for the network to confirm the transaction.
+- Network must be robust, priority == robustness. 
+- The transaction is sent to one specific node, which then propagates the transaction information to the other nodes. 
+- The node takes the transactions (ours and others) assembles the transactions into a list and forms a block. 
+    -- Then preforms validation logic, mining, finding the hash sequence. 
+
+Basic Blockchains:
+- SHA 256: digital finger print of a set of data.
+    -- Hash length is fixed. 
+    -- Cannot pre-guess.
+    -- Hash only changes if the data changes. 
+- Block breaks the data up into three sections (number, nonce, and data).
+    -- Begins with a certain amount of zeros, indicating it has been signed (valid block).
+    -- Nonce is a number you change to make the block to start with the desired amount of zeros. 
+        --- Mine button will look through all the numbers to find a number that hashes with the correct amount of leading zeros. 
+- Blockchain (same as a block) now includes previous blocks hash (points backwards)
+    -- Changing a previous blocks contents, changes the hash, and results in breaking blocks ahead of it. 
+        --- Must re-mine the block and all following it. 
+    -- Keeps contains of previous blocks secure and resistant to change. 
+- Distributed Blockchain 
+    -- All peers have a complete copy of the blockchain
+    -- The distributed network looks for majority within the network, comparing the most recent blocks hash.
+- Tokens 
+    -- Data is replaced with transactions, no limit on number of transactions. 
+    -- Chaning the transactions changes the hash of the next block, creating immutability. 
+        --- Resiting modification of past events (ledger).
+    -- Only tracking money movement, not an accounts total amount of. 
+    -- Begs the question, does a person have enough to send that amount?
+- Coinbase Transaction
+    -- The idea that there is a base transaction that gives a user a certain amount of money.
+        -- This could be a genisis block or a receiving money from another user. 
+    -- Using this you can trace the providence of a transaction all the way back to ensure that a user hash the correct amount of money. 
+
+Block Time: 
+- Blockchain description by Anders: anders.com/blockchain/block.html
+- Can think of the hash as a large number. 
+- The hash must be lower than some target value (in base 10).
+    -- Represented via leading number of zeros, reality is looking at the value of the hash. 
+- Hashs are 64 characters long, range of base ten value 0 to 1.1.5 x 10^77
+- Time to find the solution = Block time
+    -- Time it takes to hash every hash from 0 to the number to reach target value
+- Once a node has found a value, it must distribute the solution to the network. That adds additional time.
+- Ethereum network has a target block time of 15 seconds, ideally it takes on average 15 seconds. 
+- Target value is adjusted based on block times to maintain a certain level of completion time. 
+    -- lower target value slower, vice versa. 
+- Example: etherscan.io/chart/blocktime
+
+Smart Contracts:
+- High level: an account controlled by code. Instructs the contract how to behave. 
+- Contract Account contains
+    -- Balance: amount of ether controlled by the contract.
+    -- Storage: Data stored related to the contract, any type of data that is relvant to the application we are trying to make. 
+    -- Code: Contains the raw machine code for this contract. 
+- External Accounts: owned by an entity decoupled from any network.
+- Contract Account is created on one specific network. Must be deployed on each network on a new account.
+- Authoring contract code becomes the contract source.
+    -- Deploying the contract code creates an instance of the contract, aka a contract account.
+        --- Similar to a class and instance relationship in the programming world. 
+            ---- Contract source code is the class. Create copies/instances by deploying it to a network.
+
+
+
