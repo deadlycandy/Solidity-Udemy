@@ -107,5 +107,41 @@ Smart Contracts:
         --- Similar to a class and instance relationship in the programming world. 
             ---- Contract source code is the class. Create copies/instances by deploying it to a network.
 
+The Solidity Programming Language:
+- Designed for authoring Smart contracts. 
+- .sol file type. 
+- Strongly typed. 
+- Similar to Javascript (similar syntactically).
+- Authoring a contract quickly, application code takes longer.
+- Contract Definition -> Solidity complier -> Byte code ready for deployment
+                                           -> Application Binary interface (ABI)
+    -- ABI is used to interact with the contract through the applicaton. 
+        --- Easily ledgible and interface for bytecode. 
 
+Our First Smart Contract:
+- Using online editor: remix.ethereum.org
+
+Contract Structure:
+- Pragma statement defines which compiler version to user, prevents code from breaking as language evolves.
+- Contract defines a new contract. 
+- Storage variable is one that is automatically stored onto the ethereum blockchain. 
+    -- Contrast to local variable, never persistance. 
+- Contracts have constructors.
+
+Function Declarations:
+- function [name][function type][return type]
+    -- function getMessage() returns (string) {}
+- Common Function types
+    -- public: Anyone can call this function
+    -- private: Only this contract can call this function
+    -- view / constant: This function returns data and does not modify the contracs data. 
+    -- pure: Function will not modify or even read the contracts data.
+    -- payable: When someone calls this function they might send ether along.
+- Cannot return data from function that modifys state of the contract. 
+
+Testing with Remix:
+- Deploys into inbbroswer fake network.
+- Inbox contract stores a message variable and can be modified or reterieved. 
+- First Gotcha: Whenever you define a storage variable as public the contract will autogenerate a function to get the value of the varaible.
+    -- get function is redundant. 
 
