@@ -145,3 +145,67 @@ Testing with Remix:
 - First Gotcha: Whenever you define a storage variable as public the contract will autogenerate a function to get the value of the varaible.
     -- get function is redundant. 
 
+Redeploying Contract:
+- When updating code, must redeploy the contract to reflect changes.
+
+Behind the Scenes of Deployment:
+- The big difference between money sending transcation and contract creation transaction the to field is left blank to indicate contract creation.
+    -- To field being blank creates blank contract.
+
+More on Running Functions Than You Want to Know:
+- Updating any data on the blockchain -> submit a transaction.
+    -- Must wait for validation.
+    -- setMessage function must involve a transaction 
+- Calling a function  
+    -- Calling a function does not modify data. 
+    -- Is free.
+    -- Runs instantly
+- Sending a transaction to a function.
+    -- Modifying any data in our contract.
+    -- Takes time to execute (Second Gotcha).
+        --- Test networks operate instantly. Public networks take time.
+    -- Returns the transaction hash (Third Gotcha).
+    -- Cost money (Fourth Gotcha).
+
+Wei vs Ether:
+- wei, gwei, finney, ether all units of ether. 
+    -- No fractional wei, lowest 1 wei. 
+- wei converter (online tools)
+
+Gas and Transaction:
+- Must pay some money to run contracts (Gas).
+- Each mathmatical operation cost a certain price. 
+    -- Gas costs on a given operation (public sheet).
+- gasPrice: amount of wei the sender is willing to pay per unit gas to get this transaction processed.
+- startGas/gasLimit: Units of gas that this transaction can consume.
+- Transaction to call function doMath has a gasPrice and gasLimit.
+    -- Each operation triggers a check ensure there is enough gas. Fails the execution if not enough gas. 
+    -- Left over gas is returned.
+    -- total cost =  gasPrice x gas used 
+
+Mnemonic Phrases:
+- 12 word phase that is linked to account details (public, private,)
+- Easier to manage keys
+
+Getting More Ether:
+- faucet.rinkeby.io
+    -- must use social media.
+
+Contract Deployment:
+- Contract source -> solidity compiler -> Contract bytecode -> rinkeby
+                                       -> ABI 
+- Truffle: command line tool to aid in contract dev, testing, and deployment.
+    -- common tool (rapid changes, stuff breaks, and things dont work)
+- The dependencies that you use will break.
+- Going to build custom node project for deploying contracts.
+
+Boilerplate Requirements:
+- Potential issues
+    -- Need to be able to wire solidity code in a js project 
+        --- set up solidit complier to build our contracts.
+    -- Need way to rapidly test contracts without doing the manual testing 
+        --- Set up custom mocha test runner that test solidity code.
+    -- Need to deploy our contracts to public networks.
+        --- Set up a deploy script to compile and deploy.
+
+   
