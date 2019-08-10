@@ -4,6 +4,21 @@ const Web3 = require('web3');
 
 const web3 = new Web3(ganache.provider()); //connects to the ethereum network.
 
+beforeEach( () => {
+    //get a list of all accounts
+    web3.eth.getAccounts().then(fectechedAccounts =>{
+        console.log(fectechedAccounts);
+    }); //can connect to multiple cryptos.
+
+    // use an accoount to deploy a contract
+});
+
+describe('Inbox', () => {
+    it('deploys a contract', () => {
+
+    });
+});
+
 /* Mocha Test
 class Car{
     park(){
