@@ -208,4 +208,60 @@ Boilerplate Requirements:
     -- Need to deploy our contracts to public networks.
         --- Set up a deploy script to compile and deploy.
 
-   
+Compiling Solidy:
+- Using require function to include files will cause error.
+- Path gaurentees valid paths for all file systems.
+
+The Compile Script:
+- Contracts are compiled like objects. Can access individual contracts using contracts[':Inbox']
+
+Testing Architecture:
+- Using Ganache/TestRPC to create local network for deployment.
+- Web3 portal to access deployed contract.
+
+Web3 Versioning:
+- When using web3 must call a constructor.
+- End all use to get programatic access to ethereum network
+- v0.x.x: primitive interface only callbacks for async code
+- v1.x.x: support for promises +async/wait.
+    -- Most support posts are of v0.x.x
+
+Web3 Providers:
+- only working with one instance of web3
+- Use the constructor to create an instance of web3 
+    -- configure it with a provider. Communication layer between web3 and ethereum network.
+    -- Exepects a provider.
+- Change ganache provider to connect to another network.
+
+Testing with Mocha:
+- Used to test any js application.
+- General purpose 
+- it: run a test and make an assertion.
+- describe: groups together it functions.
+- beforeEach: Executre some general setup code.
+- Assert checks equivalnces between two values.
+- To run mocha, change package.json file test field to mocha.
+    - use command: npm run test 
+ 
+Mocha Structure:
+- Mocha starts -> deploy a new contract (beforeEach) -> manipulate the contract (it) -> make an assertion about the contract (it) 
+- Ganache provides test accounts to use.
+
+Fetching Accounts from Ganache:
+- All functions in web3 are async
+- Can be used to access other crypto networks.
+
+Deployed Inbox Overview:
+- All code is tied to the web3 library.
+- Web3 with contracts
+- Use web3 to get access to deployed contracts.
+- Interact with deployed contract: ABI and Address of deployed contract.
+- Create a contract: ABI and Bytecode
+
+Infura deployment/Signup:
+- Infura talks to the rinkeby network
+- Must use account that has ether on the rinkeby network
+- Must access rinkeby through infura node
+
+
+
