@@ -263,5 +263,52 @@ Infura deployment/Signup:
 - Must use account that has ether on the rinkeby network
 - Must access rinkeby through infura node
 
+The Lottery Contract/Design:
+- Prize pool of ether and list of people 
+- After x time a manager tells the contract to pick a winner
+    -- Sending the winnings to the selected winner
+- Variables: Manager (address of person who created contract) and Array of Players (addresses)
+- Functions: Enter and pickWinner
 
+Basic Solidity Types:
+- String
+- Bool
+- Int
+    - intX: x reps number of bits.
+    - int == int256
+- Uint: unsigned, positive. no decimal.
+- Fixed/ufixed: Fixed point number, number w/ decimal after.
+- Address: Has methods tied to it for sending money. (0x18ba...)
 
+Starting the Lottery Contract:
+- Private / public is more about showing other developers if a variable is easy to access not security.
+
+The Message Global Variable:
+- Assign manager with deployers address 
+- Global variable including anytime a contract function is inovoked.
+- Account -> Transaction -> Contract Instance 
+  \  msg object describes /
+- Msg Global Variabel
+    -- msg.data: Data field from the call or transaction invoked 
+    -- msg.gas: Amount of gass the current function invocation has
+    -- msg.sender: Address of the account who initiated the current function invocation.
+    -- msg.value: Amount of ether that was sent along.
+
+Overview of Arrays:
+- Fixed Array: single type and fixed length. int[3]
+- Dynamic Array: single type and changable length. int[] (empty)
+- Mapping: Key value pairs. Keys all same type. Values must be same type.
+    -- Used for collection of data.
+- Struct: Collection of key value pairs that can have different types. 
+- Auto get function for arrays does not get the entire array. Must give an index.
+
+Validation with Require Statements:
+- require function is global
+- checks if a expression is valid if not exits out of the function. 
+- Error message does not provide information for reason of failure. 
+    -- Check require functions.
+
+Pseudo Random Number Generator:
+- Solidity does not have a random number generator.
+- Technically can be gamed. 
+- Our version: Current block difficulty + current time + addressess of players -> sha3 -> big number
