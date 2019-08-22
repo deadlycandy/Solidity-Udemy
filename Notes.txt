@@ -82,7 +82,7 @@ Basic Blockchains:
 
 Block Time: 
 - Blockchain description by Anders: anders.com/blockchain/block.html
-- Can think of the hash as a large number. 
+-1111 Can think of the hash as a large number. 
 - The hash must be lower than some target value (in base 10).
     -- Represented via leading number of zeros, reality is looking at the value of the hash. 
 - Hashs are 64 characters long, range of base ten value 0 to 1.1.5 x 10^77
@@ -311,4 +311,18 @@ Validation with Require Statements:
 Pseudo Random Number Generator:
 - Solidity does not have a random number generator.
 - Technically can be gamed. 
-- Our version: Current block difficulty + current time + addressess of players -> sha3 -> big number
+- Our version: Current block difficulty + current time + addressess of players -> sha3 -> big numbero
+
+Select a Winner:
+- Call random function % players.length -> number between 0 and length.
+
+Resetting Contract State:
+- Deploy -> Player enters -> Pick winner -> Empty list (return to deployed state)
+
+Requiring a Manager:
+- Use the require function to ensure only deployer can call pick winner.
+
+Function Modifiers:
+- using key word modifier to define new mondifcation
+- end with _; - target for compiler
+
