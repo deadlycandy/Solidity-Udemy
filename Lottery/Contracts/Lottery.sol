@@ -17,9 +17,14 @@ contract Lottery {
         return uint(sha3(block.difficulty, now, players));
     }
 
-    function pickWinner() public {
+    function pickWinner() public restricted{
         uint index = random() % players.length;
         players[index].transfer(this.balance);
         players =  new address[](0); // parens tell array to have length of zero
+    }
+
+    modifier restricted() {
+        require(msg.sender == manager);
+        _;
     }
 }
