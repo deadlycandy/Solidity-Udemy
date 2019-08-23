@@ -191,6 +191,8 @@ Getting More Ether:
 - faucet.rinkeby.io
     -- must use social media.
 
+SECTION 2 Smart Contracts and Solidity
+
 Contract Deployment:
 - Contract source -> solidity compiler -> Contract bytecode -> rinkeby
                                        -> ABI 
@@ -263,6 +265,8 @@ Infura deployment/Signup:
 - Must use account that has ether on the rinkeby network
 - Must access rinkeby through infura node
 
+SECTION 3: Advance Smart Contracts
+
 The Lottery Contract/Design:
 - Prize pool of ether and list of people 
 - After x time a manager tells the contract to pick a winner
@@ -326,3 +330,21 @@ Function Modifiers:
 - using key word modifier to define new mondifcation
 - end with _; - target for compiler
 
+SECTION 4: Building Interactive Front Ends
+
+Ethereum App Architecture:
+- Using React 
+- Traditional architecture is a handshake between user and serve.
+    -- sending html pages and forms back and forth
+- Servers do dramatically less in ethereum architecture. 
+    -- mainly serves the html page
+- Changing data in the contract is done through web3 and meta mask creating a transaction. 
+- Server never receives private keys. 
+    -- Does not modify the blockchain.
+- Moving responsibilty to writing data to the client 
+    -- Requires beefy clients.
+- React allows for more business logic in the client side application.
+
+SECTION 8 APPENDIX Basic React
+
+ 
