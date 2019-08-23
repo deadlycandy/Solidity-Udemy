@@ -347,4 +347,11 @@ Ethereum App Architecture:
 
 SECTION 8 APPENDIX Basic React
 
- 
+JSK:
+- Bundle.js compiled js files 
+    -- webpack and babble take all the files and combine into one
+- React is a js library used to produce html shown to a user in the browser
+- Writing individual components/views that produces html js -> html
+- React code = writing nested components 
+
+
