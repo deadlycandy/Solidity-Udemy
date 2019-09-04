@@ -1,9 +1,19 @@
-// import React from 'react';
 const React = require('react');
 const ReactDOM = require('react-dom');
+
+//importing element.
+import SearchBar from './Components/search_bar';
+
+const API_KEY = 'AIzaSyDLtJjbP9OybFHdZbb83qlpY7wVTKm-KFU';
+
 // Creating new component. Produce some html.
 const App = () =>{
-    return <div> Hi! </div>;
+    return(
+        <div>
+            <SearchBar />
+        </div>
+    );
+
 }
 
 //Insert into html document
