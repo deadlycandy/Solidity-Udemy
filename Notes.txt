@@ -353,5 +353,24 @@ JSK:
 - React is a js library used to produce html shown to a user in the browser
 - Writing individual components/views that produces html js -> html
 - React code = writing nested components 
+- JSX is compiled to vinilla js 
+- Use reactdom to show elements in dom
+- Need to pass an instance of the element not class
+- Render takes two parameters
 
+Class based Components:
+- Used to remember information post rendering
+
+Javascript State
+- State is a plain js object used to record and react to events. 
+- Each class based component has its own class based object. 
+    -- if the state is changed forces re-rendering
+- Use setState to manipulate the state.
+    -- informs react
+
+Controlled Components 
+- Setting the input value via the state 
+    -- Component is now being controlled by the state
+- Downward data flow means the most parent component should be responsible for fetching the data
+- Passing data from parent component to child is called props 
 
