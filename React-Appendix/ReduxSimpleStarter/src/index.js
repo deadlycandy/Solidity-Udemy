@@ -6,7 +6,7 @@ const _ = require('lodash');
 import SearchBar from './Components/search_bar';
 import VideoList from './Components/video_list';
 import VideoDetail from './Components/video_detail'
-const API_KEY = 'AIzaSyDLtJjbP9OybFHdZbb83qlpY7wVTKm-KFU';
+const API_KEY = ''; // insert api key
 
 
 
